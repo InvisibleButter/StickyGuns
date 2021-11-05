@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public Rigidbody2D RigidBody;
     public float Speed = 20f;
+    public int Damage = 1;
 
     private bool _isActive;
     private Transform _weaponTrans;
@@ -45,6 +46,14 @@ public class Bullet : MonoBehaviour
     {
         if(collision.tag == "Border")
         {
+            IsActive = false;
+        }
+
+        IEntity entity = collision.gameObject.GetComponent<IEntity>();
+        if (entity !=  null)
+        {
+            entity.TakeDamage(Damage);
+
             IsActive = false;
         }
     }
