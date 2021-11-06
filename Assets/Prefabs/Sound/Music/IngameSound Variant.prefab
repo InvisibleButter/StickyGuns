@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 8797875720091594604, guid: 5af3242ab54d246a481535eff2ea0837, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 18eb7a338c28d44fa846ec9e101ecb41, type: 3}
+      objectReference: {fileID: 8300000, guid: d0c2eaf1793974d80a3aebc4331ba3cc, type: 3}
     - target: {fileID: 8797875720091594605, guid: 5af3242ab54d246a481535eff2ea0837, type: 3}
       propertyPath: m_Name
       value: IngameSound Variant
