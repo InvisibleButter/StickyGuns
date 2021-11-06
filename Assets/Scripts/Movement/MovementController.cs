@@ -11,6 +11,7 @@ namespace StickyGuns.Movement
 
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private float playerSpeed;
+        [SerializeField] private float horizontalScaler;
 
         private Vector2 movement;
 
@@ -41,7 +42,7 @@ namespace StickyGuns.Movement
 
             double verticalHeightSeen = Camera.main.orthographicSize;
             double horizontalHeightSeen = verticalHeightSeen * Screen.width / Screen.height;
-            horizontalHeightSeen -= (horizontalHeightSeen / 10) * 3.4;
+            horizontalHeightSeen -= (horizontalHeightSeen / 10) * horizontalScaler;
 
             Vector3 newPositon = rb.position + movement * playerSpeed * Time.deltaTime;
 
