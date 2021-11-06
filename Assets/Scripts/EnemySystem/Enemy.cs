@@ -21,7 +21,7 @@ public class Enemy : Entity
         {
             Vector3 targetPos = CreateRandomPos();
             float distance = transform.position.sqrMagnitude - targetPos.sqrMagnitude;
-            float duration = ( Mathf.Abs(distance) + 1 ) * distanceFactor * speed;
+            float duration = ( Mathf.Abs(distance) + 1 ) * distanceFactor / speed;
 
             Tween tween = transform.DOMove(targetPos, duration);
             yield return tween.WaitForCompletion();
