@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Weapon : Entity
 {
     public Transform FirePoint;
     public float CooldownTime = 2f;
@@ -9,6 +10,8 @@ public class Weapon : MonoBehaviour
 
     public Bullet.Type BulletType;
 
+    public Sticky sticky;
+
     private float _remainingShootDelay;
     private float _remainingCooldown;
     private int _currentBullets;
@@ -16,9 +19,19 @@ public class Weapon : MonoBehaviour
     public bool OnCooldown { get; set; }
     public int Damage { get; set; }
 
-    private void Start()
+    protected void Start()
     {
+        base.Start();
         _currentBullets = MaxBullets;
+        OnAfterDeath += SpawnAsSticky;
+    }
+
+    private void SpawnAsSticky()
+    {
+        WeaponManager.Instance.DeRegister(this);
+
+        gameObject.SetActive(true);
+        sticky.seperate();
     }
 
     public virtual void Shoot()
