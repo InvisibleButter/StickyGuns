@@ -8,6 +8,9 @@ public class Weapon : Entity
     public float CooldownTime = 2f;
     public float TimeBetweenShoot = 0.2f;
     public int MaxBullets = 5;
+    public int MaxLevel = 5;
+    public float ScaleModifier = 0.2f;
+    public int StartDamage = 1;
 
     public Bullet.Type BulletType;
 
@@ -17,24 +20,35 @@ public class Weapon : Entity
     private float _remainingCooldown;
     private int _currentBullets;
 
+    private int _currentCollectedGuns;
+
     public bool OnCooldown { get; set; }
-    public int Damage { get; set; }
+    public int Damage { get => StartDamage + (1 + CurrentLevel); }
+
+    public int CurrentLevel { get; set; }
 
     public String soundName;
+
+    public WeaponType Weapontype;
+
+    public enum WeaponType
+    {
+        BlueChristal,
+        StrawberryWeapon,
+        Pheeeeew
+    }
 
     protected void Start()
     {
         base.Start();
         _currentBullets = MaxBullets;
-        OnDeath += SpawnAsSticky;
-
-        Damage = 100;
     }
 
-    private void SpawnAsSticky(Entity entity)
+    private void SpawnAsSticky()
     {
         WeaponManager.Instance.DeRegister(this);
 
+        gameObject.SetActive(true);
         sticky.seperate();
     }
 
@@ -81,5 +95,20 @@ public class Weapon : Entity
         BulletSpawner.Instance.SpawnBullet(FirePoint, Damage, BulletType, gameObject.layer);
         _currentBullets--;
         _remainingShootDelay = TimeBetweenShoot;
+    }
+
+    public void MayLvlUp()
+    {
+        int nextLevel = 1 + CurrentLevel * 2;
+        if(nextLevel >= _currentCollectedGuns + 1)
+        {
+            CurrentLevel++;
+            _currentCollectedGuns = 0;
+        }
+        else
+        {
+            _currentCollectedGuns++;
+        }
+        
     }
 }

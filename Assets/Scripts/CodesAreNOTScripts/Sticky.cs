@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 [RequireComponent(typeof(Rigidbody2D))]
 public class Sticky : MonoBehaviour
 {
@@ -14,7 +12,7 @@ public class Sticky : MonoBehaviour
     public float seperationRotationAngle;
 
     Rigidbody2D rigidbody;
-    // Start is called before the first frame update
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -49,21 +47,41 @@ public class Sticky : MonoBehaviour
         rigidbody.angularVelocity = seperationRotationAngle;
     }
 
-
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Sticky stic = collision.gameObject.GetComponent<Sticky>();
         if (stic != null && stic.isSticky && isReciever)
         {
-            Debug.Log("Collision");
-            stic.changeLayer(gameObject.layer);
-            stic.setParent(transform);
-            stic.disableRigidBody();
-            stic.isSticky = false;
-            stic.isReciever = true;
-            WeaponManager.Instance.Register(collision.gameObject.GetComponent<Weapon>());
+            Weapon otherWeapon = collision.gameObject.GetComponent<Weapon>();
+            Weapon ownWeapon = GetComponent<Weapon>();
+
+            if(ownWeapon != null)
+            {
+                if(otherWeapon.Weapontype == ownWeapon.Weapontype)
+                {
+                    otherWeapon.MayLvlUp();
+                    Destroy(otherWeapon.gameObject);
+                }
+                else
+                {
+                    Stick(stic, otherWeapon);
+                }
+            }
+            else
+            {
+                Stick(stic, otherWeapon);
+            }
         }
+    }
+
+    private void Stick(Sticky stic, Weapon w)
+    {
+        Debug.Log("Collision");
+        stic.changeLayer(gameObject.layer);
+        stic.setParent(transform);
+        stic.disableRigidBody();
+        stic.isSticky = false;
+        stic.isReciever = true;
+        WeaponManager.Instance.Register(w);
     }
 }
