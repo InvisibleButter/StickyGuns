@@ -131,10 +131,10 @@ TextureImporter:
       name: BorderMainFieldSpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 603
-        width: 292
-        height: 292
+        x: 0
+        y: 600
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       name: BorderMainFieldSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 305
-        y: 603
-        width: 292
-        height: 292
+        x: 300
+        y: 600
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +173,10 @@ TextureImporter:
       name: BorderMainFieldSpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 605
-        y: 603
-        width: 292
-        height: 292
+        x: 600
+        y: 600
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: BorderMainFieldSpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 5
-        y: 303
-        width: 292
-        height: 292
+        x: 0
+        y: 300
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +215,10 @@ TextureImporter:
       name: BorderMainFieldSpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 305
-        y: 304
-        width: 292
-        height: 292
+        x: 300
+        y: 300
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,10 +236,10 @@ TextureImporter:
       name: BorderMainFieldSpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 605
-        y: 303
-        width: 292
-        height: 292
+        x: 600
+        y: 300
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,10 +257,10 @@ TextureImporter:
       name: BorderMainFieldSpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 5
-        y: 3
-        width: 292
-        height: 292
+        x: 0
+        y: 0
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,10 +278,10 @@ TextureImporter:
       name: BorderMainFieldSpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 305
-        y: 3
-        width: 291
-        height: 292
+        x: 300
+        y: 0
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,10 +299,10 @@ TextureImporter:
       name: BorderMainFieldSpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 605
-        y: 3
-        width: 292
-        height: 292
+        x: 600
+        y: 0
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
