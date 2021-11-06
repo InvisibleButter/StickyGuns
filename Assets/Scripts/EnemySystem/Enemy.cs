@@ -44,7 +44,7 @@ public class Enemy : Entity
 
     private void ShipDestroy(Entity entity)
     {
-        tween?.Kill(true);
+        tween?.Kill(false);
         AudioManager.Instance.Play("bigBang");
         animator.SetTrigger("death");
         Weapon[] takeMeOff = weapons.ToArray();
@@ -52,6 +52,11 @@ public class Enemy : Entity
         {
             weapon.TakeDamage(weapon.Health);
         }
+    }
+
+    public void DestroyAnimationFinished()
+    {
+        OnAllowToDie?.Invoke();
     }
 
     private IEnumerator StartShooting()

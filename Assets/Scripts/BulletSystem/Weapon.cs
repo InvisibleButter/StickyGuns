@@ -26,16 +26,15 @@ public class Weapon : Entity
     {
         base.Start();
         _currentBullets = MaxBullets;
-        OnAfterDeath += SpawnAsSticky;
+        OnDeath += SpawnAsSticky;
 
         Damage = 100;
     }
 
-    private void SpawnAsSticky()
+    private void SpawnAsSticky(Entity entity)
     {
         WeaponManager.Instance.DeRegister(this);
 
-        gameObject.SetActive(true);
         sticky.seperate();
     }
 

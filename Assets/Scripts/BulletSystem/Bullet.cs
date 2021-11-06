@@ -35,12 +35,13 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == shootFromLayer || collision.gameObject.layer == gameObject.layer)
+        IsActive = false;
+
+        if (collision.gameObject.layer == shootFromLayer)
         {
             return;
         }
 
-        IsActive = false;
         Entity entity = collision.gameObject.GetComponent<Entity>();
         if(entity != null)
         {

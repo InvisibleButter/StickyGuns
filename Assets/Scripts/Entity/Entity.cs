@@ -14,6 +14,7 @@ public class Entity : MonoBehaviour
 
     public Action<Entity> OnDeath { get; set; }
     public Action OnAfterDeath { get; set; }
+    public Action OnAllowToDie { get; private set; }
 
     public bool IsDeath { get { return Health <= 0; } }
 
@@ -22,6 +23,16 @@ public class Entity : MonoBehaviour
     protected void Start()
     {
         Health = MaxHealth;
+        OnAllowToDie += Die;
+    }
+
+    private void Die()
+    {
+        //DIE
+        StopAllCoroutines();
+        gameObject.SetActive(false);
+
+        OnAfterDeath?.Invoke();
     }
 
     public void TakeDamage(int amount)
@@ -31,12 +42,6 @@ public class Entity : MonoBehaviour
         if(Health <= 0)
         {
             OnDeath?.Invoke(this);
-
-            //DIE
-            StopAllCoroutines();
-            gameObject.SetActive(false);
-
-            OnAfterDeath?.Invoke();
         }
     }
 }
