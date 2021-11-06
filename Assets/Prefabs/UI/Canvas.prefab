@@ -199,7 +199,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6626779971713369570}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -1016,7 +1016,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6626779971713369570}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
         m_MethodName: OpenCredits
         m_Mode: 1
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SubMenus:
   - {fileID: 1689631546444918265}
-  StartMenuVisual: {fileID: 0}
+  StartMenuVisual: {fileID: 1689631545673995617}
 --- !u!1 &1689631546067645480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,7 +1903,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6626779971713369570}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
