@@ -41,6 +41,7 @@ namespace StickyGuns.Movement
 
             double verticalHeightSeen = Camera.main.orthographicSize;
             double horizontalHeightSeen = verticalHeightSeen * Screen.width / Screen.height;
+            horizontalHeightSeen -= (horizontalHeightSeen / 10) * 3.4;
 
             Vector3 newPositon = rb.position + movement * playerSpeed * Time.deltaTime;
 
