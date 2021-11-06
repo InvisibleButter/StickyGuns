@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     public int Damage = 1;
 
     private bool _isActive;
-    private Transform _weaponTrans;
+    protected Transform _weaponTrans;
 
     public enum Type
     {
@@ -37,13 +37,15 @@ public class Bullet : MonoBehaviour
         Damage = damage;
         gameObject.SetActive(true);
         transform.position = t.position;
+        transform.rotation = t.rotation;
     }
 
     private void FixedUpdate()
     {
         if(_isActive)
         {
-            RigidBody.AddForce(_weaponTrans.up * Speed);
+            //RigidBody.AddForce(transform.up * Speed);
+            RigidBody.velocity = transform.up * Speed;
         }
     }
 
