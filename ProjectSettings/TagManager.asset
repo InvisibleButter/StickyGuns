@@ -43,3 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Universe
+    uniqueID: 1130569843
+    locked: 0
+  - name: Background
+    uniqueID: 2699677341
+    locked: 0
+  - name: Laser
+    uniqueID: 3481050065
+    locked: 0
+  - name: Projectile
+    uniqueID: 2838169683
+    locked: 0
+  - name: Ships
+    uniqueID: 2868198913
+    locked: 0
