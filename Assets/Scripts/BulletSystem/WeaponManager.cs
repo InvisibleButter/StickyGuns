@@ -23,18 +23,12 @@ public class WeaponManager : MonoBehaviour
 
     public void Register(Weapon w)
     {
-        if(w == null)
-        {
-            Debug.Log("REGISTERING NULL WEAPON");
-        }
         Weapons.Add(w);
     }
 
     public void DeRegister(Weapon w)
     {
         Weapons.Remove(w);
-        //todo maybe a pooling could be cool
-        Destroy(w.gameObject);
     }
 
     private void Update()
