@@ -29,7 +29,7 @@ namespace StickyGuns.Sound
             {
                 AudioSource audioSource = gameObject.AddComponent<AudioSource>();
                 audioSources[i] = audioSource;
-                //audioSource.outputAudioMixerGroup = mixerGroups[i];
+                audioSource.outputAudioMixerGroup = mixerGroups[i];
             }
 
             Instance = this;

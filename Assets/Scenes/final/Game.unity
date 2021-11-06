@@ -360,9 +360,58 @@ MonoBehaviour:
   - name: pew
     clip: {fileID: 8300000, guid: e02e995dd329c4ad798addfd12cf6e29, type: 3}
     mixer: {fileID: -9172800562758306027, guid: 5accb09fce1a44181bc5ee3e080b012f, type: 2}
-    volume: 1
-    pitch: 0
-    loop: 1
+    volume: 0.224
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: bigBang
+    clip: {fileID: 8300000, guid: 409723dfd3cd14fe0ab4199989a7be79, type: 3}
+    mixer: {fileID: -9172800562758306027, guid: 5accb09fce1a44181bc5ee3e080b012f, type: 2}
+    volume: 0.224
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: buttonPressed
+    clip: {fileID: 8300000, guid: c7f46cf6e99534f7c8be4b7252c1826a, type: 3}
+    mixer: {fileID: 6307995750508858659, guid: 5accb09fce1a44181bc5ee3e080b012f, type: 2}
+    volume: 0.224
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: buttonRelease
+    clip: {fileID: 8300000, guid: 5e6b4b2263fdc419eb299a3b2c38b7bf, type: 3}
+    mixer: {fileID: 6307995750508858659, guid: 5accb09fce1a44181bc5ee3e080b012f, type: 2}
+    volume: 0.224
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: machinGun
+    clip: {fileID: 8300000, guid: 913264895c264499aa898660d5f29e47, type: 3}
+    mixer: {fileID: -9172800562758306027, guid: 5accb09fce1a44181bc5ee3e080b012f, type: 2}
+    volume: 0.224
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ray
+    clip: {fileID: 8300000, guid: adea0a18ca7124e89a2a40715e43e5f7, type: 3}
+    mixer: {fileID: -9172800562758306027, guid: 5accb09fce1a44181bc5ee3e080b012f, type: 2}
+    volume: 0.224
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: rocketLaunch
+    clip: {fileID: 8300000, guid: dd67cf75f48ec44c2b6fbc701300fd16, type: 3}
+    mixer: {fileID: -9172800562758306027, guid: 5accb09fce1a44181bc5ee3e080b012f, type: 2}
+    volume: 0.224
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: slime
+    clip: {fileID: 8300000, guid: 80ed75cd417d446058a7da43b20ecab4, type: 3}
+    mixer: {fileID: -9172800562758306027, guid: 5accb09fce1a44181bc5ee3e080b012f, type: 2}
+    volume: 0.224
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &246906313
 Transform:
@@ -11377,6 +11426,10 @@ PrefabInstance:
     - target: {fileID: 4529137685104476339, guid: 72c46a33fdccf4393b66f7256c36d4ac, type: 3}
       propertyPath: m_Name
       value: IngameSound Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4529137685104476339, guid: 72c46a33fdccf4393b66f7256c36d4ac, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72c46a33fdccf4393b66f7256c36d4ac, type: 3}
