@@ -46,10 +46,10 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnBullet(Transform t, int damage, Bullet.Type type)
+    public void SpawnBullet(Transform t, int damage, Bullet.Type type, int layer)
     {
         Bullet b = GetBulletFromPool(type);
-        b.InitBullet(t, damage);
+        b.InitBullet(t, damage, layer);
     }
 
     public Bullet GetBulletFromPool(Bullet.Type type)

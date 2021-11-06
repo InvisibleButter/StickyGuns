@@ -28,7 +28,7 @@ public class Weapon : Entity
         _currentBullets = MaxBullets;
         OnAfterDeath += SpawnAsSticky;
 
-        Damage = 1;
+        Damage = 100;
     }
 
     private void SpawnAsSticky()
@@ -79,7 +79,7 @@ public class Weapon : Entity
 
     protected virtual void SpawnBullet()
     {
-        BulletSpawner.Instance.SpawnBullet(FirePoint, Damage, BulletType);
+        BulletSpawner.Instance.SpawnBullet(FirePoint, Damage, BulletType, gameObject.layer);
         _currentBullets--;
         _remainingShootDelay = TimeBetweenShoot;
     }

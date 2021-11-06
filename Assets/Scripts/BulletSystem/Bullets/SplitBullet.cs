@@ -11,9 +11,9 @@ public class SplitBullet : Bullet
 
     public override Type BulletType => Type.Split;
 
-    public override void InitBullet(Transform t, int damage)
+    public override void InitBullet(Transform t, int damage, int layer)
     {
-        base.InitBullet(t, damage);
+        base.InitBullet(t, damage, layer);
 
         _remaingTimeUntilSplit = TimeUntilSplit;
         _splitted = false;
@@ -36,7 +36,7 @@ public class SplitBullet : Bullet
             {
                 Transform t = transform;
                 t.eulerAngles = new Vector3(0, 0, start + angle * (i + 1));
-                BulletSpawner.Instance.SpawnBullet(t, Damage, Type.Standard);
+                BulletSpawner.Instance.SpawnBullet(t, Damage, Type.Standard, shootFromLayer);
                 IsActive = false;
             }
         }

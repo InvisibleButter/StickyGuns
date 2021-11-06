@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
+using StickyGuns.Sound;
 
 public class Enemy : Entity
 {
@@ -10,8 +11,14 @@ public class Enemy : Entity
     public float distanceFactor = 0.2f;
     public List<Weapon> weapons = new List<Weapon>();
 
+    private Animator animator;
+
+    Tween tween;
+
     protected new void Start()
     {
+        animator = GetComponent<Animator>();
+
         base.Start();
         OnDeath += ShipDestroy;
         OnAfterDeath += RemoveEnemy;
@@ -37,14 +44,22 @@ public class Enemy : Entity
 
     private void ShipDestroy(Entity entity)
     {
-        weapons.ForEach((Weapon weapon) => weapon.TakeDamage(1));
+        tween?.Kill(true);
+        AudioManager.Instance.Play("bigBang");
+        animator.SetTrigger("death");
+        Weapon[] takeMeOff = weapons.ToArray();
+        foreach(Weapon weapon in takeMeOff)
+        {
+            weapon.TakeDamage(weapon.Health);
+        }
     }
 
     private IEnumerator StartShooting()
     {
+        yield return new WaitForSeconds(3);
+
         if (!IsDeath)
         {
-            yield return new WaitForSeconds(3);
             weapons.ForEach((Weapon weapon) => weapon.Shoot());
             StartCoroutine(StartShooting());
         }
@@ -52,15 +67,15 @@ public class Enemy : Entity
 
     private IEnumerator MoveToRandomPos()
     {
+        Vector3 targetPos = CreateRandomPos();
+        float distance = transform.position.sqrMagnitude - targetPos.sqrMagnitude;
+        float duration = (Mathf.Abs(distance) + 1) * distanceFactor / speed;
+
+        tween = transform.DOMove(targetPos, duration);
+        yield return tween.WaitForCompletion();
+
         if (!IsDeath)
         {
-            Vector3 targetPos = CreateRandomPos();
-            float distance = transform.position.sqrMagnitude - targetPos.sqrMagnitude;
-            float duration = ( Mathf.Abs(distance) + 1 ) * distanceFactor / speed;
-
-            Tween tween = transform.DOMove(targetPos, duration);
-            yield return tween.WaitForCompletion();
-
             StartCoroutine(MoveToRandomPos());
         }
     }
@@ -76,12 +91,6 @@ public class Enemy : Entity
 
     private void RemoveEnemy()
     {
-        StartCoroutine(WaitAndDo(1, () => Destroy(gameObject)));
-    }
-
-    IEnumerator WaitAndDo(float time, Action action)
-    {
-        yield return new WaitForSeconds(time);
-        action();
+        Destroy(gameObject);
     }
 }

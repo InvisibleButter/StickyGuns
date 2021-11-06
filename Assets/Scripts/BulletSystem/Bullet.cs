@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     private bool _isActive;
     protected Transform _weaponTrans;
 
+    protected int shootFromLayer;
+
     public enum Type
     {
         Standard,
@@ -33,6 +35,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.layer == shootFromLayer || collision.gameObject.layer == gameObject.layer)
+        {
+            return;
+        }
+
         IsActive = false;
         Entity entity = collision.gameObject.GetComponent<Entity>();
         if(entity != null)
@@ -41,13 +48,15 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public virtual void InitBullet(Transform t, int damage)
+    public virtual void InitBullet(Transform t, int damage, int shootFromLayer)
     {
         _weaponTrans = t;
         Damage = damage;
         gameObject.SetActive(true);
         transform.position = t.position;
         transform.rotation = t.rotation;
+
+        this.shootFromLayer = shootFromLayer;
     }
 
     private void FixedUpdate()
