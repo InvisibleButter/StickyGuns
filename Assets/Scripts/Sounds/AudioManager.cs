@@ -25,12 +25,6 @@ namespace StickyGuns.Sound
             }
         }
 
-
-        private void Start()
-        {
-            Play("StartMelodie");
-        }
-
         public void Play(string name)
         {
             Sound sound = Array.Find(sounds, sound => sound.name == name);
