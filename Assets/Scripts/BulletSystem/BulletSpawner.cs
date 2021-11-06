@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class BulletSpawner : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class BulletSpawner : MonoBehaviour
     public GameObject BulletPrefab;
     public Transform BulletHolder;
 
-    public int PrewarmBulletCount = 20;
+    public int PrewarmBulletCount = 10;
 
     public static BulletSpawner Instance;
 
@@ -32,32 +33,35 @@ public class BulletSpawner : MonoBehaviour
 
     private void PrewarmBullets()
     {
-        for (int i = 0; i < PrewarmBulletCount; i++)
+        foreach (var bulletType in BulletPresets)
         {
-            GameObject bulletGo = Instantiate(BulletPrefab, BulletHolder);
-            Bullet b = bulletGo.GetComponent<Bullet>();
-            b.IsActive = false;
-            Bullets.Add(b);
+            for (int i = 0; i < PrewarmBulletCount; i++)
+            {
+                GameObject bulletGo = Instantiate(bulletType.Prefab, BulletHolder);
+                Bullet b = bulletGo.GetComponent<Bullet>();
+                b.IsActive = false;
+                Bullets.Add(b);
+            }
         }
     }
 
     public void SpawnBullet(Transform t, int damage, Bullet.Type type)
     {
-        Bullet b = GetBulletFromPool();
+        Bullet b = GetBulletFromPool(type);
         b.InitBullet(t, damage);
     }
 
-    public Bullet GetBulletFromPool()
+    public Bullet GetBulletFromPool(Bullet.Type type)
     {
         Bullet b;
-        if (Bullets.Any(each=>!each.IsActive))
+        if (Bullets.Any(each=>!each.IsActive && each.BulletType == type))
         {
-            b = Bullets.First(each => !each.IsActive);
+            b = Bullets.First(each => !each.IsActive && each.BulletType == type);
             b.IsActive = true;
             return b;
         }
 
-        GameObject bulletGo = Instantiate(BulletPrefab, BulletHolder);
+        GameObject bulletGo = Instantiate(BulletPresets.First(each=> each.Type == type).Prefab, BulletHolder);
         b = bulletGo.GetComponent<Bullet>();
         b.IsActive = true;
         Bullets.Add(b);
@@ -65,6 +69,7 @@ public class BulletSpawner : MonoBehaviour
     }
 }
 
+[Serializable]
 public class BulletPreset
 {
     public Bullet.Type Type;
