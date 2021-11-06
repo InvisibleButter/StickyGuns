@@ -8,6 +8,16 @@ public class Bullet : MonoBehaviour
 
     private bool _isActive;
     private Transform _weaponTrans;
+
+    public enum Type
+    {
+        Standard,
+        Split,
+        TargetLock
+    }
+
+    public virtual Type BulletType => Type.Standard;
+
     public bool IsActive 
     { 
         get => _isActive;
@@ -21,9 +31,10 @@ public class Bullet : MonoBehaviour
         } 
     }
 
-    public void InitBullet(Transform t)
+    public virtual void InitBullet(Transform t, int damage)
     {
         _weaponTrans = t;
+        Damage = damage;
         gameObject.SetActive(true);
         transform.position = t.position;
     }

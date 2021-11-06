@@ -4,6 +4,7 @@ using System.Linq;
 
 public class BulletSpawner : MonoBehaviour
 {
+    public List<BulletPreset> BulletPresets = new List<BulletPreset>();
     public List<Bullet> Bullets = new List<Bullet>();
     public GameObject BulletPrefab;
     public Transform BulletHolder;
@@ -40,10 +41,10 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnBullet(Transform t)
+    public void SpawnBullet(Transform t, int damage, Bullet.Type type)
     {
         Bullet b = GetBulletFromPool();
-        b.InitBullet(t);
+        b.InitBullet(t, damage);
     }
 
     public Bullet GetBulletFromPool()
@@ -62,4 +63,10 @@ public class BulletSpawner : MonoBehaviour
         Bullets.Add(b);
         return b;
     }
+}
+
+public class BulletPreset
+{
+    public Bullet.Type Type;
+    public GameObject Prefab;
 }

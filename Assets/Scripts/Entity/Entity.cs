@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour, IEntity
 {
+    public enum Type
+    {
+        Player, 
+        Enemy,
+        Weapon
+    }
+
     public int Health { get; set; }
 
     public int MaxHealth = 1;
