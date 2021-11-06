@@ -15,7 +15,35 @@ namespace StickyGuns.Movement
 
         private Vector2 movement;
 
+        public float boostEnergy = 100;
+        private int boostPower = 1;
+        private bool boostMode = false;
+
         #endregion
+
+
+        public float BoostEnergy
+        {
+            get
+            {
+                return boostEnergy;
+            }
+
+            set
+            {
+                boostEnergy = value;
+
+                if (boostEnergy > 100)
+                {
+                    boostEnergy = 100;
+                }
+
+                if (boostEnergy < 0)
+                {
+                    boostEnergy = 0;
+                }
+            }
+        }
 
 
         #region Update
@@ -27,6 +55,17 @@ namespace StickyGuns.Movement
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
+
+            if (Input.GetKeyDown(KeyCode.LeftShift) == true)
+            {
+                boostMode = true;
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftShift) == true)
+            {
+                boostMode = false;
+            }
+
         }
 
         #endregion
@@ -40,11 +79,30 @@ namespace StickyGuns.Movement
         private void FixedUpdate()
         {
 
+            if (BoostEnergy == 0)
+            {
+                boostMode = false;
+            }
+
+
+            if (boostMode)
+            {
+                boostPower = 2;
+                BoostEnergy -= Time.deltaTime * 100;
+            }
+            else
+            {
+                boostPower = 1;
+                BoostEnergy += Time.deltaTime * 10;
+            }
+
+            Debug.Log(boostPower);
+
             double verticalHeightSeen = Camera.main.orthographicSize;
             double horizontalHeightSeen = verticalHeightSeen * Screen.width / Screen.height;
             horizontalHeightSeen -= (horizontalHeightSeen / 10) * horizontalScaler;
 
-            Vector3 newPositon = rb.position + movement * playerSpeed * Time.deltaTime;
+            Vector3 newPositon = rb.position + movement * playerSpeed * boostPower * Time.deltaTime;
 
             if (newPositon.x > horizontalHeightSeen - 0.5)
             {
