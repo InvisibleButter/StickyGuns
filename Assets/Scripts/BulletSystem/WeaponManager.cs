@@ -3,10 +3,30 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+
+    public static WeaponManager Instance;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.Log("DUPLICATED WEAPON MANAGER GOOD BYE");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     public List<Weapon> Weapons = new List<Weapon>();
 
     public void Register(Weapon w)
     {
+        if(w == null)
+        {
+            Debug.Log("REGISTERING NULL WEAPON");
+        }
         Weapons.Add(w);
     }
 

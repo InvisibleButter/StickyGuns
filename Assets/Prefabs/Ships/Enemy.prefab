@@ -120,5 +120,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 10
-  speed: 8
+  speed: 4
   distanceFactor: 0.9

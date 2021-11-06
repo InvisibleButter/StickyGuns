@@ -18,6 +18,7 @@ public class BulletSpawner : MonoBehaviour
     {
         if(Instance != null && Instance != this)
         {
+            Debug.Log("DUPLICATED BULLET SPAWNER DETECTED: HASTALA VISTA BABY!");
             Destroy(this.gameObject);
         }
         else

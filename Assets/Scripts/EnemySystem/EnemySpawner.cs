@@ -19,6 +19,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
+            Debug.Log("DUPLICATED ENEMY SPAWNER: HAVE A NICE DAY!");
             Destroy(gameObject);
         }
         else

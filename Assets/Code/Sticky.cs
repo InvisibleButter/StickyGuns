@@ -63,20 +63,7 @@ public class Sticky : MonoBehaviour
             stic.disableRigidBody();
             stic.isSticky = false;
             stic.isReciever = true;
-            GetWeaponManager()?.Register(GetComponent<Weapon>());
+            WeaponManager.Instance.Register(collision.gameObject.GetComponent<Weapon>());
         }
-    }
-
-    protected WeaponManager GetWeaponManager()
-    {
-        if(weaponManager == null)
-        {
-            weaponManager = GetComponent<WeaponManager>();
-        }
-        if (weaponManager == null)
-        {
-            weaponManager = GetComponentInParent<Sticky>().GetWeaponManager();
-        }
-        return weaponManager;
     }
 }
