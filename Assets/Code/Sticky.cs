@@ -5,8 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Sticky : MonoBehaviour
 {
-    //Debug only
-    public bool isChild;
+    private WeaponManager weaponManager;
 
     public bool isSticky;
     public bool isReciever;
@@ -19,18 +18,6 @@ public class Sticky : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        if(isSticky)rigidbody.velocity = new Vector2(-1, 0);
-        else
-            rigidbody.velocity = new Vector2(1, 0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (isChild && transform.parent.position.x > 5)
-        {
-            seperate();
-        }
     }
 
     public void changeLayer(int layer)
@@ -46,6 +33,7 @@ public class Sticky : MonoBehaviour
     public void disableRigidBody()
     {
         rigidbody.isKinematic = true;
+        rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     public void seperate()
@@ -56,6 +44,7 @@ public class Sticky : MonoBehaviour
         isReciever = false;
         gameObject.layer = 8;
         rigidbody.isKinematic = false;
+        rigidbody.constraints = RigidbodyConstraints2D.None;
         rigidbody.velocity = direction * seperationSpeed;
         rigidbody.angularVelocity = seperationRotationAngle;
     }
@@ -66,7 +55,7 @@ public class Sticky : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Sticky stic = collision.gameObject.GetComponent<Sticky>();
-        if (stic != null&&stic.isSticky&&isReciever)
+        if (stic != null && stic.isSticky && isReciever)
         {
             Debug.Log("Collision");
             stic.changeLayer(gameObject.layer);
@@ -74,8 +63,20 @@ public class Sticky : MonoBehaviour
             stic.disableRigidBody();
             stic.isSticky = false;
             stic.isReciever = true;
+            GetWeaponManager()?.Register(GetComponent<Weapon>());
         }
     }
 
-
+    protected WeaponManager GetWeaponManager()
+    {
+        if(weaponManager == null)
+        {
+            weaponManager = GetComponent<WeaponManager>();
+        }
+        if (weaponManager == null)
+        {
+            weaponManager = GetComponentInParent<Sticky>().GetWeaponManager();
+        }
+        return weaponManager;
+    }
 }
