@@ -96,8 +96,6 @@ namespace StickyGuns.Movement
                 BoostEnergy += Time.deltaTime * 10;
             }
 
-            Debug.Log(boostPower);
-
             double verticalHeightSeen = Camera.main.orthographicSize;
             double horizontalHeightSeen = verticalHeightSeen * Screen.width / Screen.height;
             horizontalHeightSeen -= (horizontalHeightSeen / 10) * horizontalScaler;

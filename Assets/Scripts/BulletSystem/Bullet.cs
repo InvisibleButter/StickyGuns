@@ -31,6 +31,16 @@ public class Bullet : MonoBehaviour
         } 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        IsActive = false;
+        Entity entity = collision.gameObject.GetComponent<Entity>();
+        if(entity != null)
+        {
+            entity.TakeDamage(Damage);
+        }
+    }
+
     public virtual void InitBullet(Transform t, int damage)
     {
         _weaponTrans = t;

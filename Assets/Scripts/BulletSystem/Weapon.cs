@@ -1,4 +1,5 @@
 using System;
+using StickyGuns.Sound;
 using UnityEngine;
 
 public class Weapon : Entity
@@ -19,11 +20,15 @@ public class Weapon : Entity
     public bool OnCooldown { get; set; }
     public int Damage { get; set; }
 
+    public String soundName;
+
     protected void Start()
     {
         base.Start();
         _currentBullets = MaxBullets;
         OnAfterDeath += SpawnAsSticky;
+
+        Damage = 1;
     }
 
     private void SpawnAsSticky()
@@ -50,6 +55,7 @@ public class Weapon : Entity
 
         if(_remainingShootDelay <= 0)
         {
+            AudioManager.Instance.Play("pew");
             SpawnBullet();
         }      
     }
