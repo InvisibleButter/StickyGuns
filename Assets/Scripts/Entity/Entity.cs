@@ -12,7 +12,7 @@ public class Entity : MonoBehaviour
 
     public int MaxHealth = 1;
 
-    public Action OnDeath { get; set; }
+    public Action<Entity> OnDeath { get; set; }
     public Action OnAfterDeath { get; set; }
 
     public bool IsDeath { get { return Health <= 0; } }
@@ -30,7 +30,7 @@ public class Entity : MonoBehaviour
 
         if(Health <= 0)
         {
-            OnDeath?.Invoke();
+            OnDeath?.Invoke(this);
 
             //DIE
             StopAllCoroutines();
