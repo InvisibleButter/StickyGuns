@@ -10,8 +10,6 @@ public class Entity : MonoBehaviour
         Weapon
     }
 
-    public int Health { get; set; }
-
     public int MaxHealth = 1;
 
     public Action OnDeath { get; set; }
