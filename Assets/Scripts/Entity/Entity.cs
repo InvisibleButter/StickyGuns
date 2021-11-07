@@ -12,6 +12,7 @@ public class Entity : MonoBehaviour
 
     public int MaxHealth = 1;
 
+    public Action OnTakeDamage { get; set; }
     public Action<Entity> OnDeath { get; set; }
     public Action OnAfterDeath { get; set; }
     public Action OnAllowToDie { get; private set; }
@@ -37,7 +38,14 @@ public class Entity : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if(Health < 0)
+        {
+            return;
+        }
+
         Health -= amount;
+
+        OnTakeDamage?.Invoke();
 
         if(Health <= 0)
         {

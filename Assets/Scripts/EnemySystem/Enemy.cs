@@ -5,22 +5,17 @@ using DG.Tweening;
 using System.Collections.Generic;
 using StickyGuns.Sound;
 
-public class Enemy : Entity
+public class Enemy : ShipEntity
 {
     public float speed = 2f;
     public float distanceFactor = 0.2f;
     public List<Weapon> weapons = new List<Weapon>();
 
-    private Animator animator;
-
     Tween tween;
 
     protected new void Start()
     {
-        animator = GetComponent<Animator>();
-
         base.Start();
-        OnDeath += ShipDestroy;
         OnAfterDeath += RemoveEnemy;
 
         LinkWeapons();
@@ -42,21 +37,15 @@ public class Enemy : Entity
         weapons.Remove(entity as Weapon);
     }
 
-    private void ShipDestroy(Entity entity)
+    protected override void ShipDestroy(Entity entity)
     {
+        base.ShipDestroy(entity);
         tween?.Kill(false);
-        AudioManager.Instance.Play("bigBang");
-        animator.SetTrigger("death");
         Weapon[] takeMeOff = weapons.ToArray();
         foreach(Weapon weapon in takeMeOff)
         {
             weapon.TakeDamage(weapon.Health);
         }
-    }
-
-    public void DestroyAnimationFinished()
-    {
-        OnAllowToDie?.Invoke();
     }
 
     private IEnumerator StartShooting()
@@ -97,5 +86,10 @@ public class Enemy : Entity
     private void RemoveEnemy()
     {
         Destroy(gameObject);
+    }
+
+    public override void DestroyAnimationFinished()
+    {
+        base.DestroyAnimationFinished();
     }
 }
