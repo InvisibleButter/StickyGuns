@@ -72,8 +72,15 @@ public class Sticky : MonoBehaviour
             {
                 if(otherWeapon.Weapontype == ownWeapon.Weapontype)
                 {
-                    ownWeapon.MayLvlUp();
-                    otherWeapon.DestroyMe();
+                    if(ownWeapon.MayLvlUp())
+                    {
+                        otherWeapon.DestroyMe();
+                    }
+                    else
+                    {
+                        Stick(stic, otherWeapon);
+                    }
+                  
                 }
                 else
                 {
