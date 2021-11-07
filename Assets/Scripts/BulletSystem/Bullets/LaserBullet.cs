@@ -63,6 +63,6 @@ public class LaserBullet : Bullet
 
     public void DamageStart()
     {
-        GetComponent<PolygonCollider2D>().enabled = true;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 }
