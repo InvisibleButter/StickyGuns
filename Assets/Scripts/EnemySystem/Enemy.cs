@@ -13,6 +13,8 @@ public class Enemy : ShipEntity
 
     Tween tween;
 
+    public override Type EntityType => Type.Enemy;
+
     protected new void Start()
     {
         base.Start();

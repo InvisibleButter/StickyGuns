@@ -73,6 +73,14 @@ public class Bullet : MonoBehaviour
         {
             entity.TakeDamage(Damage);
         }
+        else
+        {
+            entity = collision.gameObject.GetComponentInChildren<Entity>();
+            if (entity != null)
+            {
+                entity.TakeDamage(Damage);
+            }
+        }    
     }
 
     //todo do something great here

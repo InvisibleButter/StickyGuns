@@ -26,6 +26,7 @@ public class Weapon : Entity
 
     public bool OnCooldown { get; set; }
     public int Damage { get => StartDamage + (1 + CurrentLevel); }
+    public override Type EntityType => Type.Weapon;
 
     public int CurrentLevel { get; set; }
 
@@ -125,5 +126,10 @@ public class Weapon : Entity
     {
         _onDestroy = true;
         Destroy(transform.parent.gameObject);
+    }
+
+    public void ReduceLevel()
+    {
+
     }
 }

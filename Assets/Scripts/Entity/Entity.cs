@@ -21,6 +21,8 @@ public class Entity : MonoBehaviour
 
     public int Health { get; protected set; }
 
+    public virtual Type EntityType { get; }
+
     protected void Start()
     {
         Health = MaxHealth;
@@ -36,7 +38,7 @@ public class Entity : MonoBehaviour
         OnAfterDeath?.Invoke();
     }
 
-    public void TakeDamage(int amount)
+    public virtual void TakeDamage(int amount)
     {
         if(Health < 0)
         {

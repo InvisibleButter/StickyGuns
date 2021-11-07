@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerEntity : ShipEntity
 {
+    public override Type EntityType => Type.Player;
+    
     protected void Start()
     {
         base.Start();
