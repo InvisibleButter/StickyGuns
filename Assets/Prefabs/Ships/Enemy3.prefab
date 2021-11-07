@@ -307,6 +307,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun3
       objectReference: {fileID: 0}
+    - target: {fileID: 4631419707400727011, guid: 0c2d9c9ed2a0a465e9520a7d6b0187e9, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8619574334868379274, guid: 0c2d9c9ed2a0a465e9520a7d6b0187e9, type: 3}
       propertyPath: isSticky
       value: 0

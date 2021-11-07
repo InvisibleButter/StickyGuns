@@ -254,7 +254,7 @@ MonoBehaviour:
   FirePoint: {fileID: 348483488262169881}
   CooldownTime: 2
   TimeBetweenShoot: 0.2
-  MaxBullets: 5
+  MaxBullets: 1
   MaxLevel: 5
   ScaleModifier: 0.2
   StartDamage: 1
