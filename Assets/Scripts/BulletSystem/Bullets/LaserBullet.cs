@@ -19,7 +19,7 @@ public class LaserBullet : Bullet
         Speed = 0f;
         this.shootFromLayer = shootFromLayer;
         stopEffects();
-        GetComponent<PolygonCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public void DestroyMe()
