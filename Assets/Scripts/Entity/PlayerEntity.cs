@@ -23,5 +23,7 @@ public class PlayerEntity : ShipEntity
     public override void DestroyAnimationFinished()
     {
         base.DestroyAnimationFinished();
+
+        GameManager.Instance.LooseGame();
     }
 }
