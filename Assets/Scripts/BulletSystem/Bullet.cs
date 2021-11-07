@@ -34,22 +34,6 @@ public class Bullet : MonoBehaviour
         } 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        IsActive = false;
-
-        if (collision.gameObject.layer == shootFromLayer)
-        {
-            return;
-        }
-
-        Entity entity = collision.gameObject.GetComponent<Entity>();
-        if(entity != null)
-        {
-            entity.TakeDamage(Damage);
-        }
-    }
-
     public virtual void InitBullet(Transform t, int damage, int shootFromLayer)
     {
         _weaponTrans = t;
@@ -78,17 +62,16 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Border")
+        IsActive = false;
+
+        if (collision.tag == "Border")
         {
-            IsActive = false;
         }
 
-        IEntity entity = collision.gameObject.GetComponent<IEntity>();
+        Entity entity = collision.gameObject.GetComponent<Entity>();
         if (entity !=  null)
         {
             entity.TakeDamage(Damage);
-
-            IsActive = false;
         }
     }
 
