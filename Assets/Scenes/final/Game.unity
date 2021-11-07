@@ -606,6 +606,10 @@ PrefabInstance:
       propertyPath: HighlighedSprite
       value: 
       objectReference: {fileID: -1596047073, guid: e0457bb227451b843a9ed4277363700c, type: 3}
+    - target: {fileID: 2741641402424352216, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.39093018
+      objectReference: {fileID: 0}
     - target: {fileID: 4018368939956010236, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -663,6 +667,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5360372059328800160, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: stepSize
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 5360372059328800160, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
       propertyPath: playerEntity
       value: 
       objectReference: {fileID: 192289792}
@@ -681,6 +689,26 @@ PrefabInstance:
     - target: {fileID: 6353761059098982864, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878968152834081558, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.49999943
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878968152834081558, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.010210659
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878968152834081558, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 734.6172
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878968152834081558, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.026800543
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878968152834081558, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.3400917
       objectReference: {fileID: 0}
     - target: {fileID: 8229602778689069272, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
       propertyPath: DefaultSprite
@@ -704,6 +732,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8873500012702343419, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057003437260599246, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: m_ShowMaskGraphic
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11329,7 +11361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minRespawnDuration: 1
   maxRespawnDuration: 5
-  targetEnemyAmount: 1
+  targetEnemyAmount: 3
   enemyHolder: {fileID: 1949493668}
   enemyPrefab: {fileID: -4535650249341573673, guid: 41d23a2c754454c67b74ad2cbdeed4f5, type: 3}
   spawnPoint: {fileID: 851887702}
@@ -16370,7 +16402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414772629388484259, guid: 45ecdee225d884c85bd63e91c6292489, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 414772629388484259, guid: 45ecdee225d884c85bd63e91c6292489, type: 3}
       propertyPath: m_SortingLayerID
