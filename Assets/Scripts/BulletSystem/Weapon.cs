@@ -21,6 +21,7 @@ public class Weapon : Entity
     private int _currentBullets;
 
     private int _currentCollectedGuns;
+    private bool _onDestroy;
 
     public bool OnCooldown { get; set; }
     public int Damage { get => StartDamage + (1 + CurrentLevel); }
@@ -92,6 +93,9 @@ public class Weapon : Entity
 
     protected virtual void SpawnBullet()
     {
+        if (_onDestroy)
+            return;
+
         BulletSpawner.Instance.SpawnBullet(FirePoint, Damage, BulletType, gameObject.layer);
         _currentBullets--;
         _remainingShootDelay = TimeBetweenShoot;
@@ -104,11 +108,17 @@ public class Weapon : Entity
         {
             CurrentLevel++;
             _currentCollectedGuns = 0;
+           // Visual.localScale *= ScaleModifier;
         }
         else
         {
             _currentCollectedGuns++;
         }
-        
+    }
+
+    public void DestroyMe()
+    {
+        _onDestroy = true;
+        Destroy(this.gameObject);
     }
 }
