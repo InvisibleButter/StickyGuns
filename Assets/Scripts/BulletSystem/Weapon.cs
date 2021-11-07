@@ -114,24 +114,28 @@ public class Weapon : Entity
         _remainingShootDelay = TimeBetweenShoot;
     }
 
-    public void MayLvlUp()
+    public bool MayLvlUp()
     {
         int nextLevel = 1 + CurrentLevel * 2;
         if(nextLevel <= _currentCollectedGuns + 1)
         {
-            if(CurrentLevel + 1 < MaxLevel)
+            if(CurrentLevel + 1 <= MaxLevel)
             {
                 CurrentLevel++;
                 _currentCollectedGuns = 0;
 
                 float modifier = 1 + (ScaleModifier * (CurrentLevel + 1));
                 Visual.localScale = new Vector3(modifier, modifier, modifier);
+                return true;
             } 
         }
         else
         {
             _currentCollectedGuns++;
+            return true;
         }
+
+        return false;
     }
 
     public void DestroyMe()
