@@ -28,6 +28,11 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    internal void Release(Score score)
+    {
+        freeToUse.Add(score);
+    }
+
     public void AddScore(int amount)
     {
         Score += (uint)amount;

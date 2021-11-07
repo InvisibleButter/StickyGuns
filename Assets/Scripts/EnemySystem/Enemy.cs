@@ -15,6 +15,8 @@ public class Enemy : ShipEntity
 
     public override Type EntityType => Type.Enemy;
 
+    public int gainedScore = 3;
+
     protected new void Start()
     {
         base.Start();
@@ -100,6 +102,7 @@ public class Enemy : ShipEntity
 
     private void RemoveEnemy()
     {
+        ScoreManager.Instance.SpawnScore(transform.position, gainedScore);
         Destroy(gameObject);
     }
 

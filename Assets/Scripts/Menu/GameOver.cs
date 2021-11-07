@@ -9,7 +9,7 @@ public class GameOver : ViewModel
     {
         base.Open();
         //getscore
-        ScoreText.text = "999999";
+        ScoreText.text = ScoreManager.Instance.Score.ToString();
     }
 
     public void QuitGame()

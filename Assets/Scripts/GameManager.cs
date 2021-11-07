@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Spawner.SpawnEnemies();
+        ScoreManager.Instance.AddScore(0); //REFRESH
     }
 
     public void LooseGame()
