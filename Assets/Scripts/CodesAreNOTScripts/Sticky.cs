@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Linq;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Sticky : MonoBehaviour
@@ -52,8 +54,8 @@ public class Sticky : MonoBehaviour
         Sticky stic = collision.gameObject.GetComponent<Sticky>();
         if (stic != null && stic.isSticky && isReciever)
         {
-            Weapon otherWeapon = collision.gameObject.GetComponent<Weapon>();
-            Weapon ownWeapon = GetComponent<Weapon>();
+            Weapon otherWeapon = collision.gameObject.GetComponentInChildren<Weapon>();
+            Weapon ownWeapon = GetComponentInChildren<Weapon>();
 
             if(ownWeapon != null)
             {

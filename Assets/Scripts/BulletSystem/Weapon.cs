@@ -13,6 +13,7 @@ public class Weapon : Entity
     public int StartDamage = 1;
 
     public Bullet.Type BulletType;
+    public Transform Visual;
 
     public Sticky sticky;
 
@@ -104,11 +105,15 @@ public class Weapon : Entity
     public void MayLvlUp()
     {
         int nextLevel = 1 + CurrentLevel * 2;
-        if(nextLevel >= _currentCollectedGuns + 1)
+        Debug.Log("***" + CurrentLevel);
+        if(nextLevel <= _currentCollectedGuns + 1)
         {
-            CurrentLevel++;
-            _currentCollectedGuns = 0;
-           // Visual.localScale *= ScaleModifier;
+            if(CurrentLevel + 1 < MaxLevel)
+            {
+                CurrentLevel++;
+                _currentCollectedGuns = 0;
+                Visual.localScale *= 1 + (ScaleModifier * (CurrentLevel + 1));
+            } 
         }
         else
         {
@@ -119,6 +124,6 @@ public class Weapon : Entity
     public void DestroyMe()
     {
         _onDestroy = true;
-        Destroy(this.gameObject);
+        Destroy(transform.parent.gameObject);
     }
 }
