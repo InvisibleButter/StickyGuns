@@ -446,6 +446,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 427955798079381417, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: stepSize
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 427955798079381417, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: playerEntity
+      value: 
+      objectReference: {fileID: 192289792}
     - target: {fileID: 767344809648463751, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
       propertyPath: DefaultSprite
       value: 
@@ -720,7 +728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5360372059328800160, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
       propertyPath: stepSize
-      value: 130
+      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 5360372059328800160, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
       propertyPath: playerEntity
@@ -861,6 +869,14 @@ PrefabInstance:
     - target: {fileID: 8873500012702343419, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940705520647878922, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: m_FillMethod
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940705520647878922, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: m_FillClockwise
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9057003437260599246, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
       propertyPath: m_ShowMaskGraphic
