@@ -6,12 +6,13 @@ public class LaserBullet : Bullet
 {
     public List<ParticleSystem> effects;
     public override Type BulletType => Type.Laser;
-
+    Vector3 offset;
 
 
     public override void InitBullet(Transform t, int damage, int shootFromLayer)
     {
         _weaponTrans = t;
+        offset = transform.position;
         Damage = damage;
         gameObject.SetActive(true);
         transform.position = t.position;
@@ -48,5 +49,10 @@ public class LaserBullet : Bullet
         {
             effects[i].Stop();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        transform.position = offset + _weaponTrans.position;
     }
 }
