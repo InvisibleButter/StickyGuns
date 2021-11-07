@@ -113,7 +113,9 @@ public class Weapon : Entity
             {
                 CurrentLevel++;
                 _currentCollectedGuns = 0;
-                Visual.localScale *= 1 + (ScaleModifier * (CurrentLevel + 1));
+
+                float modifier = 1 + (ScaleModifier * (CurrentLevel + 1));
+                Visual.localScale = new Vector3(modifier, modifier, modifier);
             } 
         }
         else
@@ -128,8 +130,23 @@ public class Weapon : Entity
         Destroy(transform.parent.gameObject);
     }
 
-    public void ReduceLevel()
+    public void ReduceLevel(int amount)
     {
+        _currentCollectedGuns -= amount;
 
+        if(_currentCollectedGuns <= 0)
+        {
+            CurrentLevel--;
+            if(CurrentLevel <= 0)
+            {
+                WeaponManager.Instance.DeRegister(this);
+                DestroyMe();
+            }
+            else
+            {
+                float modifier = 1 + (ScaleModifier * (CurrentLevel + 1));
+                Visual.localScale = new Vector3(modifier, modifier, modifier);
+            }
+        }
     }
 }
