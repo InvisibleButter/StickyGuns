@@ -43,6 +43,7 @@ public class Sticky : MonoBehaviour
 
     public void seperate()
     {
+        setParent(transform.parent.parent);
         Vector2 direction = transform.position - transform.parent.position;
         direction = direction.normalized;
         isSticky = true;

@@ -45,6 +45,17 @@ public class Weapon : Entity
     {
         base.Start();
         _currentBullets = MaxBullets;
+        OnDeath += OnWeaponDeath;
+    }
+
+    private void OnWeaponDeath(Entity obj)
+    {
+        if(!sticky.isReciever && !sticky.isSticky)
+        {
+            sticky.seperate();
+            return;
+        }
+        OnAllowToDie?.Invoke();
     }
 
     private void SpawnAsSticky()
