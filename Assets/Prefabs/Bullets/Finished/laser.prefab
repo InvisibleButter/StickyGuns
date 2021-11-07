@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8946496712816006967}
   - component: {fileID: 8946496712816006961}
   - component: {fileID: 8946496712816006960}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: initial lode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 8946496713146765416}
   - component: {fileID: 8946496713146765418}
   - component: {fileID: 8946496713146765417}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ful ray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9656,7 +9656,7 @@ GameObject:
   - component: {fileID: 8946496713416081349}
   - component: {fileID: 8946496713416081348}
   - component: {fileID: 8946496713416081355}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}

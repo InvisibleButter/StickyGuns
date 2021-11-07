@@ -23,6 +23,7 @@ public class WeaponManager : MonoBehaviour
 
     public void Register(Weapon w)
     {
+        w.Reset();
         Weapons.Add(w);
     }
 

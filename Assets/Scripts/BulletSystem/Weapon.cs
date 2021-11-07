@@ -41,6 +41,13 @@ public class Weapon : Entity
         Pheeeeew
     }
 
+    public void Reset()
+    {
+        _currentBullets = MaxBullets;
+        _currentCollectedGuns = 0;
+        CurrentLevel = 0;
+    }
+
     protected void Start()
     {
         base.Start();
@@ -134,17 +141,16 @@ public class Weapon : Entity
         Destroy(transform.parent.gameObject);
     }
 
-    public void ReduceLevel(int amount)
+    public override void TakeDamage(int amount)
     {
         _currentCollectedGuns -= amount;
 
-        if(_currentCollectedGuns <= 0)
+        if (_currentCollectedGuns <= 0)
         {
             CurrentLevel--;
-            if(CurrentLevel <= 0)
+            if (CurrentLevel <= 0)
             {
-                WeaponManager.Instance.DeRegister(this);
-                DestroyMe();
+                base.TakeDamage(amount);
             }
             else
             {

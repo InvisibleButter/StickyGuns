@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1176884055120389257}
   - component: {fileID: 1176884055120389256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 1176884055182203509}
   - component: {fileID: 1176884055182203514}
   - component: {fileID: 1176884055182203515}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: standard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 1176884056002061661}
   - component: {fileID: 1176884056002061663}
   - component: {fileID: 1176884056002061660}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5132,7 +5132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1307961420424283095}
   - component: {fileID: 4467756866159273405}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
