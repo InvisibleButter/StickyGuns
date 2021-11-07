@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
     {
         Standard,
         Split,
+<<<<<<< Updated upstream
         TargetLock
     }
 
@@ -63,6 +64,56 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         if(_isActive)
+=======
+        TargetLock,
+        Laser
+    }
+
+    public virtual Type BulletType => Type.Standard;
+
+    public bool IsActive 
+    { 
+        get => _isActive;
+        set 
+        {
+            _isActive = value;
+            if(!_isActive)
+            {
+                DeInitBullet();
+            }
+        } 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == shootFromLayer || collision.gameObject.layer == gameObject.layer)
+        {
+            return;
+        }
+
+        IsActive = false;
+        Entity entity = collision.gameObject.GetComponent<Entity>();
+        if(entity != null)
+        {
+            entity.TakeDamage(Damage);
+        }
+    }
+
+    public virtual void InitBullet(Transform t, int damage, int shootFromLayer)
+    {
+        _weaponTrans = t;
+        Damage = damage;
+        gameObject.SetActive(true);
+        transform.position = t.position;
+        transform.rotation = t.rotation;
+
+        this.shootFromLayer = shootFromLayer;
+    }
+
+    private void FixedUpdate()
+    {
+        if(_isActive)
+>>>>>>> Stashed changes
         {
             //RigidBody.AddForce(transform.up * Speed);
             RigidBody.velocity = transform.up * Speed;

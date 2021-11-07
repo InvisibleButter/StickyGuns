@@ -22,6 +22,7 @@ public class BlinkingLight : MonoBehaviour
     {
         time = (time+Time.deltaTime)%animationTime;
         light.intensity = baseIntensity * curve.Evaluate(time/animationTime);
-        Debug.Log(GetComponent<Light>().intensity);
+        //light.
+        //Debug.Log(GetComponent<Light>().intensity);
     }
 }

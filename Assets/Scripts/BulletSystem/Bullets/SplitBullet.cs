@@ -39,6 +39,7 @@ public class SplitBullet : Bullet
                 BulletSpawner.Instance.SpawnBullet(t, Damage, Type.Standard, shootFromLayer);
                 IsActive = false;
             }
+            IsActive = false;
         }
         else
         {
