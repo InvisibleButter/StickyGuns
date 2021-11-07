@@ -9,6 +9,12 @@ public class LevelInfo : MonoBehaviour
 
     public void Setup(int number)
     {
+        gameObject.SetActive(true);
         NumberImg.sprite = Sprites[number - 1];
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }
