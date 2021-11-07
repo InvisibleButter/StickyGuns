@@ -55,15 +55,8 @@ public class Weapon : Entity
             sticky.seperate();
             return;
         }
-        OnAllowToDie?.Invoke();
-    }
-
-    private void SpawnAsSticky()
-    {
         WeaponManager.Instance.DeRegister(this);
-
-        gameObject.SetActive(true);
-        sticky.seperate();
+        OnAllowToDie?.Invoke();
     }
 
     public virtual void Shoot()
