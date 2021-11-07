@@ -117,7 +117,6 @@ public class Weapon : Entity
     public void MayLvlUp()
     {
         int nextLevel = 1 + CurrentLevel * 2;
-        Debug.Log("***" + CurrentLevel);
         if(nextLevel <= _currentCollectedGuns + 1)
         {
             if(CurrentLevel + 1 < MaxLevel)
