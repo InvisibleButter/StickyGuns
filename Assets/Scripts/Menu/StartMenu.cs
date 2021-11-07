@@ -24,6 +24,8 @@ public class StartMenu : MonoBehaviour
     {
         StartMenuVisual.SetActive(false);
         InStartMenu = false;
+
+        GameManager.Instance.StartGame();
     }
 
     public void OpenCredits() 
@@ -54,5 +56,10 @@ public class StartMenu : MonoBehaviour
     {
         ButtonsHolder.SetActive(b);
         Logo.SetActive(b);
+    }
+
+    public void ShowLoose()
+    {
+        SubMenus[2].Open();
     }
 }

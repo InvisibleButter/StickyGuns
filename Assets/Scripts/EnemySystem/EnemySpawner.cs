@@ -31,10 +31,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnEnemies();
+       // SpawnEnemies();
     }
 
-    private void SpawnEnemies()
+    public void SpawnEnemies()
     {
         foreach(EnemyData enemyData in spawnInfo)
         {
