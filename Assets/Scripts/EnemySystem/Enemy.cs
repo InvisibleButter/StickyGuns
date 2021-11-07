@@ -17,6 +17,8 @@ public class Enemy : ShipEntity
 
     public int gainedScore = 3;
 
+    public Bullet.Type category;
+
     protected new void Start()
     {
         base.Start();

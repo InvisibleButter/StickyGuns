@@ -237,6 +237,8 @@ MonoBehaviour:
   speed: 4
   distanceFactor: 0.9
   weapons: []
+  gainedScore: 3
+  category: 3
 --- !u!60 &4514563636076170084
 PolygonCollider2D:
   m_ObjectHideFlags: 0
