@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using StickyGuns.Sound;
 using UnityEngine;
 
 public class StartMenu : MonoBehaviour
@@ -22,6 +23,7 @@ public class StartMenu : MonoBehaviour
 
     public void StartGame() 
     {
+        AudioManager.Instance.Play("buttonRelease");
         StartMenuVisual.SetActive(false);
         InStartMenu = false;
 
@@ -30,12 +32,14 @@ public class StartMenu : MonoBehaviour
 
     public void OpenCredits() 
     {
+        AudioManager.Instance.Play("buttonRelease");
         SubMenus[0].Open();
         SetStartMenuStuff(false);
     }
 
     public void QuitGame()
     {
+        AudioManager.Instance.Play("buttonRelease");
         Application.Quit();
     }
 
