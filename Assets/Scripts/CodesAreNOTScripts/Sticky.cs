@@ -23,6 +23,11 @@ public class Sticky : MonoBehaviour
     public void changeLayer(int layer)
     {
         gameObject.layer = layer;
+
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            gameObject.transform.GetChild(i).gameObject.layer = layer;
+        }
     }
 
     public void setParent(Transform transform)
@@ -55,7 +60,12 @@ public class Sticky : MonoBehaviour
         if (stic != null && stic.isSticky && isReciever)
         {
             Weapon otherWeapon = collision.gameObject.GetComponentInChildren<Weapon>();
-            Weapon ownWeapon = GetComponentInChildren<Weapon>();
+            Weapon ownWeapon = null;
+
+            if (GetComponent<PlayerEntity>() == null)
+            {
+                ownWeapon = GetComponentInChildren<Weapon>();
+            }
 
             if(ownWeapon != null)
             {
