@@ -118,10 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a289704f6da1d224caa783cd001d7428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSticky: 1
+  isSticky: 0
   isReciever: 0
-  seperationSpeed: 0
-  seperationRotationAngle: 0
+  seperationSpeed: 100
+  seperationRotationAngle: 100
 --- !u!1 &348483488262169880
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   FirePoint: {fileID: 348483488262169881}
   CooldownTime: 2
   TimeBetweenShoot: 0.2
-  MaxBullets: 5
+  MaxBullets: 1
   MaxLevel: 5
   ScaleModifier: 0.2
   StartDamage: 1

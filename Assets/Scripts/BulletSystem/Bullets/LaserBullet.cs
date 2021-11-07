@@ -8,7 +8,6 @@ public class LaserBullet : Bullet
     public override Type BulletType => Type.Laser;
     Vector3 offset;
 
-
     public override void InitBullet(Transform t, int damage, int shootFromLayer)
     {
         _weaponTrans = t;
@@ -20,6 +19,7 @@ public class LaserBullet : Bullet
         Speed = 0f;
         this.shootFromLayer = shootFromLayer;
         stopEffects();
+        GetComponent<PolygonCollider2D>().enabled = false;
     }
 
     public void DestroyMe()
@@ -53,6 +53,16 @@ public class LaserBullet : Bullet
 
     private void FixedUpdate()
     {
-        transform.position = offset + _weaponTrans.position;
+        transform.position =_weaponTrans.position;
+    }
+
+    public  override void setActiveFalse()
+    { 
+
+    }
+
+    public void DamageStart()
+    {
+        GetComponent<PolygonCollider2D>().enabled = true;
     }
 }

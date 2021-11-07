@@ -67,7 +67,7 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        IsActive = false;
+        setActiveFalse();
 
         if (collision.tag == "Border")
         {
@@ -86,6 +86,11 @@ public class Bullet : MonoBehaviour
                 entity.TakeDamage(Damage);
             }
         }    
+    }
+
+    public virtual void setActiveFalse()
+    {
+        IsActive = false;
     }
 
     //todo do something great here
