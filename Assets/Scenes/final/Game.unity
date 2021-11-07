@@ -322,6 +322,17 @@ MonoBehaviour:
   isReciever: 1
   seperationSpeed: 0
   seperationRotationAngle: 0
+--- !u!114 &192289792 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7703248017150380990, guid: 45ecdee225d884c85bd63e91c6292489, type: 3}
+  m_PrefabInstance: {fileID: 414772629730266109}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192289784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e195c5834cc54b5d90a9c16ea0ad091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &246906311
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +662,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5360372059328800160, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
+      propertyPath: playerEntity
+      value: 
+      objectReference: {fileID: 192289792}
     - target: {fileID: 6353761059098982864, guid: 970e8d8443846d945ad570a657616bd2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
