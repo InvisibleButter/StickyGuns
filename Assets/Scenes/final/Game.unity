@@ -11346,7 +11346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPresets:
   - Type: 0
-    Prefab: {fileID: 8839474801579601819, guid: f9f94b7abae6abe48aa55c4f9170411f, type: 3}
+    Prefab: {fileID: 1176884055182203518, guid: 7818511b8e14adc43ad45a45e22e0d77, type: 3}
   - Type: 1
     Prefab: {fileID: 8839474801579601819, guid: 76f71fd927e2ba04f8c0dab246446983, type: 3}
   Bullets: []
