@@ -7,6 +7,14 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
+    public GameMode Mode { get; set; }
+
+    public enum GameMode
+    {
+        Grow,
+        WeaponMess
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -20,8 +28,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public void StartGame(GameMode mode)
     {
+        Mode = mode;
         Spawner.SpawnEnemies();
         ScoreManager.Instance.AddScore(0); //REFRESH
     }

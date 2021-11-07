@@ -25,9 +25,8 @@ public class StartMenu : MonoBehaviour
     {
         AudioManager.Instance.Play("buttonRelease");
         StartMenuVisual.SetActive(false);
-        InStartMenu = false;
 
-        GameManager.Instance.StartGame();
+        SubMenus[3].Open();
     }
 
     public void OpenCredits() 

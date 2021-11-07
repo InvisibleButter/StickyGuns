@@ -116,7 +116,11 @@ public class Weapon : Entity
 
     public bool MayLvlUp()
     {
-        return false;
+        if(GameManager.Instance.Mode == GameManager.GameMode.WeaponMess)
+        {
+            return false;
+        }
+
         int nextLevel = 1 + CurrentLevel * 2;
         if(nextLevel <= _currentCollectedGuns + 1)
         {
