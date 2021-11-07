@@ -4,12 +4,12 @@ public class ViewModel : MonoBehaviour
 {
     public GameObject Visual;
 
-    public void Open()
+    public virtual void Open()
     {
         Visual.SetActive(true);
     }
 
-    public void Close()
+    public virtual void Close()
     {
         Visual.SetActive(false);
     }
