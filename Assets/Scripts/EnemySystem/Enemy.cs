@@ -20,7 +20,7 @@ public class Enemy : ShipEntity
 
         LinkWeapons();
 
-        StartCoroutine(MoveToRandomPos());
+        StartCoroutine(MoveToRandomPos(false));
         StartCoroutine(StartShooting());
     }
 
@@ -59,9 +59,17 @@ public class Enemy : ShipEntity
         }
     }
 
-    private IEnumerator MoveToRandomPos()
+    private IEnumerator MoveToRandomPos(bool isInView)
     {
-        Vector3 targetPos = CreateRandomPos();
+        Vector3 targetPos;
+        if (isInView)
+        {
+            targetPos = CreateRandomPos();
+        }
+        else
+        {
+            targetPos = new Vector3(UnityEngine.Random.Range(-4, 4), UnityEngine.Random.Range(2, 4), transform.position.z);
+        }
         float distance = transform.position.sqrMagnitude - targetPos.sqrMagnitude;
         float duration = (Mathf.Abs(distance) + 1) * distanceFactor / speed;
 
@@ -70,17 +78,22 @@ public class Enemy : ShipEntity
 
         if (!IsDeath)
         {
-            StartCoroutine(MoveToRandomPos());
+            StartCoroutine(MoveToRandomPos(false));
         }
     }
 
 
     private Vector3 CreateRandomPos()
     {
-        float x = UnityEngine.Random.Range(-5, 5);
-        float y = UnityEngine.Random.Range(-4, 4);
+        float offsetX = UnityEngine.Random.Range(-1, 1);
+        float offsetY = UnityEngine.Random.Range(-1, 1);
 
-        return new Vector3(x, y, transform.position.z);
+        Vector3 newPos = new Vector3(
+            Math.Clamp(transform.position.x + offsetX, -5, 5),
+            Math.Clamp(transform.position.y + offsetY, -4, 4),
+            transform.position.z);
+
+        return newPos;
     }
 
     private void RemoveEnemy()
