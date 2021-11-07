@@ -8,7 +8,6 @@ public class LaserBullet : Bullet
     public override Type BulletType => Type.Laser;
     Vector3 offset;
 
-
     public override void InitBullet(Transform t, int damage, int shootFromLayer)
     {
         _weaponTrans = t;
@@ -53,6 +52,11 @@ public class LaserBullet : Bullet
 
     private void FixedUpdate()
     {
-        transform.position = offset + _weaponTrans.position;
+        transform.position =_weaponTrans.position;
+    }
+
+    public  override void setActiveFalse()
+    { 
+
     }
 }
