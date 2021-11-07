@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -6,12 +7,12 @@ public class EnemySpawner : MonoBehaviour
     public int minRespawnDuration;
     public int maxRespawnDuration;
 
-    public int targetEnemyAmount;
     public Transform enemyHolder;
-    public Enemy enemyPrefab;
     public Transform spawnPoint;
 
-    public int livingEntitys;
+    public List<EnemyData> spawnInfo;
+
+    public int totalKilled = 0;
 
     public static EnemySpawner Instance;
 
@@ -25,33 +26,35 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             Instance = this;
-            livingEntitys = 0;
         }
     }
 
-    // Use this for initialization
-    void Start()
+    private void Start()
     {
-        StartCoroutine(SchedulRespawn());
+        SpawnEnemies();
     }
 
-    IEnumerator SchedulRespawn()
+    private void SpawnEnemies()
     {
-        int waitForRespawn = Random.Range(minRespawnDuration, maxRespawnDuration);
-        yield return new WaitForSeconds(waitForRespawn);
-
-        if(livingEntitys < targetEnemyAmount)
+        foreach(EnemyData enemyData in spawnInfo)
         {
-            Enemy enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity, enemyHolder);
-            livingEntitys++;
-            enemy.OnAfterDeath += OnEnemyKilled;
-            StartCoroutine(SchedulRespawn());
+            int amount = (int)Math.Round(enemyData.curve.Evaluate(totalKilled));
+            for(int i = 0; i < amount; i++)
+            {
+                SpawnEnemy(enemyData.enemy);
+            }
         }
+    }
+
+    private void SpawnEnemy(Enemy prefab)
+    {
+        Enemy enemy = Instantiate(prefab, spawnPoint.position, Quaternion.identity, enemyHolder);
+        enemy.OnAfterDeath += OnEnemyKilled;
     }
 
     void OnEnemyKilled()
     {
-        livingEntitys--;
-        StartCoroutine(SchedulRespawn());
+        totalKilled++;
+        SpawnEnemies();
     }
 }
