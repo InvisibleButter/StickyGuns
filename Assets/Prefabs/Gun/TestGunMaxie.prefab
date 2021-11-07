@@ -107,8 +107,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSticky: 1
   isReciever: 0
-  seperationSpeed: 0
-  seperationRotationAngle: 0
+  seperationSpeed: 100
+  seperationRotationAngle: 100
 --- !u!1 &348483488262169880
 GameObject:
   m_ObjectHideFlags: 0

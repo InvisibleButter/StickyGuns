@@ -51,8 +51,8 @@ public class Sticky : MonoBehaviour
         gameObject.layer = 8;
         rigidbody.isKinematic = false;
         rigidbody.constraints = RigidbodyConstraints2D.None;
-        rigidbody.velocity = direction * seperationSpeed;
-        rigidbody.angularVelocity = seperationRotationAngle;
+        rigidbody.AddForce(direction * seperationSpeed);
+        rigidbody.AddTorque(seperationRotationAngle);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
